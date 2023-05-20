@@ -1,0 +1,35 @@
+#root {
+  width: 100vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.video-list-footer{
+  margin: 2rem 0;
+}
+
+.video-snipet-container{
+  display: flex;
+  justify-content: center;
+}
+
+.video-snippet {
+  margin: 0 1rem;
+  cursor: pointer;
+  background-color: black;
+  position: relative;
+}
+
+.video-snippet svg{
+  position: absolute;
+  left: 15px;
+  bottom: 92px;
+
+}
+
+.video-snippet .video-snippet-footer {
+  width: 300px;
+  margin: 0 auto;
+  background-color: gray;
+  padding: 1rem 0.5rem;
+}
