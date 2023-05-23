@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useReactMediaRecorder } from 'react-media-recorder';
-import { PlayCircleFilledTwoTone, ReplayCircleFilledTwoTone, StopCircleTwoTone, FiberManualRecord } from '@mui/icons-material';
+import { PlayCircleFilledTwoTone, ReplayCircleFilledTwoTone, StopCircleTwoTone, FiberManualRecord, ArrowBack, ArrowForward } from '@mui/icons-material';
 import { Button } from '@mui/material';
 import { VIDEO_QUESTIONS as videoQuestions } from '../../data/videos';
 import '../../styles/videoScreen.css';
@@ -108,6 +108,7 @@ export const VideoScreenComponent: React.FC<videoProps> = ({ question }) => {
           }}
           disabled={recordingStatus === 'recording'}
         >
+          <ArrowBack />
           Volver
         </Button>
       </div>
@@ -119,23 +120,22 @@ export const VideoScreenComponent: React.FC<videoProps> = ({ question }) => {
             <FiberManualRecord />
           </div>
         ) : undefined}
-        <Button className={`recording-button ${recordingStatus !== 'unrecorded' ? 'hide' : ''}`} onClick={handleClicRecordinButtons}>
-          <PlayCircleFilledTwoTone />
-        </Button>
-        <Button className={`recording-button ${recordingStatus !== 'recording' ? 'hide' : ''}`} onClick={handleClicRecordinButtons}>
-          <StopCircleTwoTone />
-        </Button>
-        <Button className={`recording-button ${recordingStatus !== 'recorded' ? 'hide' : ''}`} onClick={handleClicRecordinButtons}>
-          <ReplayCircleFilledTwoTone />
-        </Button>
+        <PlayCircleFilledTwoTone className={`recording-button ${recordingStatus !== 'unrecorded' ? 'hide' : ''}`} onClick={handleClicRecordinButtons} />
+
+        <StopCircleTwoTone className={`recording-button ${recordingStatus !== 'recording' ? 'hide' : ''}`} onClick={handleClicRecordinButtons} />
+
+        <ReplayCircleFilledTwoTone className={`recording-button ${recordingStatus !== 'recorded' ? 'hide' : ''}`} onClick={handleClicRecordinButtons} />
+
         <div className='video-screen-question'>{question.label}</div>
       </div>
       <div className='video-screen-footer'>
         <Button onClick={handleClicPrevVideo} disabled={recordingStatus === 'recording'}>
+          <ArrowBack />
           Atras
         </Button>
-        <Button onClick={handleClicNextVideo} disabled={recordingStatus === 'recording'}>
+        <Button onClick={handleClicNextVideo} disabled={recordingStatus === 'recording'} >
           {completeQuestions ? 'Terminar' : 'Siguiente'}
+          <ArrowForward />
         </Button>
       </div>
     </div>

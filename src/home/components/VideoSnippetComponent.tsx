@@ -32,7 +32,7 @@ export const VideoSnippetComponent: React.FC<VideoSnippetProps> = ({ question, s
   return (
     <div className='video-snippet-container'>
       <div className='video-snippet'>
-        <video ref={videoRef} width='300' height='440' onClick={() => selectedVideo(question)} src={question.url} loop></video>
+        <video ref={videoRef} width='300' height='400' onClick={() => selectedVideo(question)} src={question.url} loop></video>
         {recordingStatus === 'stop' ? (
           <PlayCircleFilledTwoTone fontSize='large' onClick={handleOnPlay} />
         ) : (

@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
-import { Button } from "@mui/material";
-import { VIDEO_QUESTIONS as videoQuestions } from "../../data/videos";
-import Carousel from "react-material-ui-carousel";
-import { VideoContainerComponent } from "./VideoContainerComponent";
-
-import "../../styles/home.css";
-
+import { useEffect, useState } from 'react';
+import { Button } from '@mui/material';
+import { VIDEO_QUESTIONS as videoQuestions } from '../../data/videos';
+import Carousel from 'react-material-ui-carousel';
+import { VideoContainerComponent } from './VideoContainerComponent';
+import '../../styles/home.css';
 
 export function Home() {
   let startIndex = 0;
@@ -20,39 +18,33 @@ export function Home() {
     }
   }
 
-  const [videoList, setVideoList] =
-    useState<{ id: string; label: string; url: string }[][]>(newList);
+  const [videoList, setVideoList] = useState<{ id: string; label: string; url: string }[][]>(newList);
   const [videoCompleted, setVideoCompleted] = useState(false);
 
   useEffect(() => {
     if (videoQuestions.every((question) => question.url !== '')) {
       setVideoCompleted(true);
     }
-  }, [])
-  
+  }, []);
 
+  const handleSend = ()=>{
+    setVideoCompleted(false);
+    alert('Gracias por tus respuestas');
+  }
 
   return (
     <main>
-      <h1>Video Questionary</h1>
-      <Carousel
-        className="video-list"
-        autoPlay={false}
-        animation="slide"
-        indicators={false}
-        navButtonsAlwaysVisible={true}
-      >
+      <h1>Video Cuestionario</h1>
+      <Carousel className='video-list' autoPlay={false} animation='slide' indicators={false} navButtonsAlwaysVisible={true}>
         {videoList.map((videoSubList, index) => (
-          <VideoContainerComponent
-            questions={videoSubList}
-            key={`video-container${index}`}
-          />
+          <VideoContainerComponent questions={videoSubList} key={`video-container${index}`} />
         ))}
       </Carousel>
 
-      <div className="video-list-footer">
-        <Button disabled={!videoCompleted}>Enviar</Button>
+      <div className='video-list-footer'>
+        <Button disabled={!videoCompleted} variant="contained" onClick={handleSend}>Enviar</Button>
       </div>
     </main>
+
   );
 }
