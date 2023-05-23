@@ -8,7 +8,7 @@
   margin: 2rem 0;
 }
 
-.video-snipet-container{
+.video-snippet-container{
   display: flex;
   justify-content: center;
 }
@@ -29,7 +29,9 @@
 
 .video-snippet .video-snippet-footer {
   width: 300px;
+  height: 100%;
   margin: 0 auto;
   background-color: gray;
   padding: 1rem 0.5rem;
+
 }

@@ -1,47 +1,44 @@
-import {
-  PlayCircleFilledTwoTone,
-  StopCircleTwoTone,
-  ReplayCircleFilledTwoTone,
-} from "@mui/icons-material";
-import { useState } from "react";
-interface VideoProps {
-  question: { label: string; url: string };
-  selectedVideo: (video: string) => void
+import { PlayCircleFilledTwoTone, StopCircleTwoTone } from '@mui/icons-material';
+import { useState, useEffect, useRef } from 'react';
+
+interface VideoSnippetProps {
+  question: { id: string; label: string; url: string };
+  selectedVideo: (video: { id: string; label: string; url: string }) => void;
 }
 
-export const VideoSnippetComponent: React.FC<VideoProps> = ({
-  question, selectedVideo
-}: VideoProps) => {
-  const [recordingStatus, setRecordingStatus] = useState<
-    "unrecorded" | "recording" | "recorded"
-  >("unrecorded");
+export const VideoSnippetComponent: React.FC<VideoSnippetProps> = ({ question, selectedVideo }: VideoSnippetProps) => {
+  const [recordingStatus, setRecordingStatus] = useState<'play' | 'stop'>('stop');
+  const [isRecorded, setIsRecorded] = useState(false);
+  const videoRef = useRef<null | HTMLVideoElement>(null);
 
-  const handleClicRecordinButtons = () => {
-    setRecordingStatus("recording");
+  useEffect(() => {
+    if (videoRef.current?.src !== 'http://localhost:5173/') {
+      setIsRecorded(true);
+    }
+
+    return () => {};
+  }, []);
+
+  const handleOnPlay = () => {
+    if (recordingStatus === 'play') {
+      videoRef.current?.pause();
+      setRecordingStatus('stop');
+    } else if (recordingStatus === 'stop' && isRecorded) {
+      videoRef.current?.play();
+      setRecordingStatus('play');
+    }
   };
 
   return (
-    <div className="video-snipet-container">
-      <div className="video-snippet">
-        <video
-          width="300"
-          height="440"
-          poster="src\assets\react.svg"
-          onClick={() => selectedVideo(question.label)}
-        >
-          <source src={question.url} type="video/mp4" />
-        </video>
-        {recordingStatus === "unrecorded" ? (
-          <PlayCircleFilledTwoTone
-            fontSize="large"
-            onClick={handleClicRecordinButtons}
-          />
-        ) : recordingStatus === "recording" ? (
-          <StopCircleTwoTone fontSize="large" />
+    <div className='video-snippet-container'>
+      <div className='video-snippet'>
+        <video ref={videoRef} width='300' height='440' onClick={() => selectedVideo(question)} src={question.url} loop></video>
+        {recordingStatus === 'stop' ? (
+          <PlayCircleFilledTwoTone fontSize='large' onClick={handleOnPlay} />
         ) : (
-          <ReplayCircleFilledTwoTone fontSize="large" />
+          <StopCircleTwoTone fontSize='large' onClick={handleOnPlay} />
         )}
-        <div className="video-snippet-footer">{question.label}</div>
+        <div className='video-snippet-footer'>{question.label}</div>
       </div>
     </div>
   );

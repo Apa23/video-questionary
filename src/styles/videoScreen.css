@@ -1,0 +1,105 @@
+.hide {
+  display: none !important;
+}
+
+.video-screen-container {
+  display: flex;
+  justify-content: center;
+}
+
+.video-screen {
+  margin: 0 1rem;
+  cursor: pointer;
+  background-color: black;
+  position: relative;
+}
+
+.video-screen .recording-button {
+  position: absolute;
+  left: 15px;
+  bottom: 72px;
+}
+
+.video-screen .video-screen-question {
+  margin: 0 auto;
+  background-color: gray;
+  padding: 1rem 0.5rem;
+}
+
+.video-screen {
+  animation: createBox 0.25s;
+}
+
+.recording-post {
+  width: 1000px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recording-time {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.recording-time svg {
+  color: red;
+  animation-name: recording;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name: recording;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-moz-keyframes recording {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes recording {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes recording {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes createBox {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
