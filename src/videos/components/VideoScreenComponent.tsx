@@ -39,7 +39,7 @@ export const VideoScreenComponent: React.FC<videoProps> = ({ question }) => {
     if (videoQuestions.every((question) => question.url !== '')) {
       setCompleteQuestions(true);
     }
-    if (recordingStatus === 'recording') {
+    if (status === 'recording') {
       coundownTimeChanged();
     }
     if (videoRef.current && previewStream) {
@@ -114,7 +114,7 @@ export const VideoScreenComponent: React.FC<videoProps> = ({ question }) => {
       </div>
       <div className='video-screen'>
         <video height='500px' width='1000px' ref={videoRef} poster={status} src={question.url} autoPlay playsInline loop></video>
-        {recordingStatus === 'recording' ? (
+        {status === 'recording' ? (
           <div className='recording-time'>
             <p>{`${Math.floor(recordingTime / 60)}:${recordingTime % 60 < 10 ? `0${recordingTime % 60}` : recordingTime % 60}`}</p>
             <FiberManualRecord />
