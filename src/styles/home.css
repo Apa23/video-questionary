@@ -1,3 +1,5 @@
+/* Estilos generales */
+
 #root {
   width: 100vw;
   margin: 0 auto;
@@ -5,11 +7,29 @@
   padding: 0 2rem;
 }
 
+/* Estilos del home */
+
+/* Estilos lista de videos */
+
 .video-list-footer {
   margin: 2rem 5rem;
   display: flex;
   justify-content: flex-end;
 }
+
+.video-list-footer button{
+  background-color: aliceblue;
+  color: #242424;
+  font-size: 1.2rem;
+  padding: 0.5rem 6rem;
+}
+
+.video-list-footer button:hover{
+  background-color: gray;
+  color: aliceblue;
+}
+
+/* Estilos tarjetas de video */
 
 .video-snippet-container {
   display: flex;
@@ -41,16 +61,4 @@
   background-color: gray;
   padding: 1rem 0.5rem;
   border-radius: 0 0 15px 15px;
-}
-
-.video-list-footer button{
-  background-color: aliceblue;
-  color: #242424;
-  font-size: 1.2rem;
-  padding: 0.5rem 6rem;
-}
-
-.video-list-footer button:hover{
-  background-color: gray;
-  color: aliceblue;
 }

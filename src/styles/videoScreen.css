@@ -1,7 +1,9 @@
+/* Estilos auxiliares */
 .hide {
   display: none !important;
 }
 
+/* Estilos pantalla de video */
 .video-screen {
   margin: 0 1rem;
   cursor: pointer;
@@ -19,15 +21,16 @@
   flex-direction: column;
 }
 
-.video-screen-container button{
+.video-screen-container button {
   color: aliceblue;
   font-size: 1.1rem;
 }
 
-.video-screen-header, .video-screen-footer{
+.video-screen-header,
+.video-screen-footer {
   display: flex;
   align-items: center;
-  padding:1rem 3rem;
+  padding: 1rem 3rem;
   justify-content: space-between;
   width: 75%;
 }
@@ -47,13 +50,7 @@
   font-size: 1.1rem;
 }
 
-.recording-post {
-  width: 1000px;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* Estilos contador de tiempo */
 
 .recording-time {
   position: absolute;
@@ -62,7 +59,6 @@
   display: flex;
   align-items: center;
 }
-
 
 .recording-time svg {
   color: red;
@@ -76,6 +72,8 @@
   -webkit-animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
 }
+
+/* Animaciones */
 
 @-moz-keyframes recording {
   0% {

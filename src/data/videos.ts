@@ -1,3 +1,5 @@
+/* En este documento se encuentra la info de las preguntas. Cada pregunta cuenta con un id, un label con el texto de la pregunta
+y una url del video respuesta que haga el usuario, inicialmente este es un string vacío */
 export const VIDEO_QUESTIONS = [
   {
     id: "question-1",
