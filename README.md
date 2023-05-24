@@ -2,7 +2,7 @@
 Krowdy Academy Bootcamp - React Module Challenge 
 
 Creado por: Andrés Felipe Aparicio Mestre
-Proyecto en ReactJS con TypeScript
+Proyecto en ReactJS con TypeScript - Template Vite
 
 Aplicación de video cuestionario donde el usuario debe responder las preguntas mostradas a través de videos que grabará con su webcam.
 
